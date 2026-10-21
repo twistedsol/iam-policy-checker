@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DeveloperAccess",
+      "Effect": "Allow",
+      "Action": ["ec2:Describe*", "s3:*", "iam:PassRole", "iam:AttachUserPolicy"],
+      "Resource": "*"
+    },
+    {
+      "Sid": "ManageIdentity",
+      "Effect": "Allow",
+      "Action": "iam:*",
+      "Resource": "*"
+    }
+  ]
+}

@@ -80,6 +80,11 @@ python3 -m unittest -v
 This is part of a 30-day challenge to learn cloud security by building in public. It follows the [log detector](https://github.com/twistedsol/log-detector) and the [misconfiguration scan](https://github.com/twistedsol/misconfig-scan). I wrote the code together with Claude. No AWS account or card is needed, so everything here runs on my own computer.
 
 ## Limits
+## What I learned
+
+- **Dangerous permissions are often just one `*`.** A policy that allows `Action: "*"` on `Resource: "*"` is full admin. Writing rules for this showed me how short a risky policy can look.
+- **AWS writes the same policy in different shapes.** A statement can be one object or a list, and a value can be one string or a list. My first checks missed this, and tests for each shape caught it.
+- **Tests gave me confidence to change the code.** I ran the 32 tests after every change, and on my own computer they all passed. The checker found 6 risky statements in the sample policies.
 
 - It checks each statement on its own. It does not work out the combined effect of several policies attached to one user.
 - It reads the policy text only. It does not know which users or roles the policy is attached to.
